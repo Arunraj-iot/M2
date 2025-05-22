@@ -12,32 +12,25 @@ Write a C program to print even numbers ranging from M to N (including M and N v
 7.	Continue the loop until you have iterated through all numbers from M to N.
 
 ## PROGRAM:
-~~~
+```
 #include <stdio.h>
-
-int main() {
-    int M, N;
-    scanf("%d %d", &M, &N);
-    int start = (M > N) ? M : N;
-    int end = (M < N) ? M : N;
-    if (start % 2 != 0) {
-        start--;
-    }
-    for (int i = start; i >= end; i -= 2) {
-        printf("%d ", i);
-    }
-    return 0;
-}
-~~~
-
+ int main() {
+     int M, N, i;
+     scanf("%d", &M);
+     printf("Enter the value of M: %d\n",M);
+     scanf("%d", &N);
+     printf("Enter the value of N: %d\n",N);
+     printf("Even numbers from %d to %d are:\n", M, N);
+     for (i = M; i <= N; i++) {
+         if (i % 2 == 0) {
+             printf("%d ", i);
+         }
+     }
+     return 0;
+  }
+```
 ## OUTPUT:
-![image](https://github.com/user-attachments/assets/29b72dce-0ba2-49b4-8888-567eeea949a6)
-
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/2ca3a18b-e61d-44d5-820e-ecf925a7a654)
 
 
 
@@ -63,38 +56,30 @@ Write a C program to print the given triangular pattern using loop.
 5.	Continue the loop until you have printed the entire triangular pattern.
 
 ## PROGRAM:
-~~~
-#include<stdio.h>
-int main()
-{
-    int i,j,n;
-    scanf("%d",&n);
-    for(i=n;i>=1;i--)
-    {
-        for(j=1;j<=i;j++)
-        {
-            printf("$");
+```
+ #include <stdio.h>
+ int main() {
+    int rows, i, j;
+    scanf("%d", &rows);
+    printf("Enter the number of rows: %d\n",rows);
+    for (i = 1; i <= rows; i++) {
+        for (j = 1; j <= i; j++) {
+            printf("* ");
         }
         printf("\n");
     }
     return 0;
 }
-~~~
-
+```
 
 ## OUTPUT:
 
-![image](https://github.com/user-attachments/assets/e08764e4-24e8-4008-a308-f0f200021928)
-
-
+![image](https://github.com/user-attachments/assets/764bda45-0f50-4f99-9388-625c414c2cbe)
 
 
 ## RESULT:
 
 Thus the program to print the given triangular pattern using loop has been executed successfully
- 
- 
-
 
 # EX-08-Functions
 
@@ -110,46 +95,29 @@ Write a C program to perform addition and subtraction of two numbers using funct
 4.	Call the addition and subtraction functions, passing the two numbers as arguments.
 
 ## PROGRAM:
-~~~
-#include<stdio.h>
-int add(int,int);
-int sub(int,int);
-int main()
-{
-    int a,b,c,d;
-    scanf("%d%d",&a,&b);
+```
+ #include <stdio.h>
+ void addition(int a, int b) {
+    printf("Addition = %d\n", a + b);
+ }
+ void subtraction(int a, int b) {
+    printf("Subtraction = %d\n", a - b);
+ }
+ int main() {
+     int num1, num2;
+     scanf("%d%d", &num1, &num2);
+     printf("Enter two numbers: %d %d \n",num1,num2);
+     addition(num1, num2);
+     subtraction(num1, num2);
+ return 0;
 }
-int add(int x,int y)
-{
-    int z;
-    z = x + y;
-    printf("Addition: %d\n",c);
-    return z;
-}
-int sub(int x,int y)
-{
-    int z;
-    z = x - y;
-    printf("Subtraction: %d",d);
-    return z;
-}
-~~~
-
-
+```
 ## OUTPUT:
-![image](https://github.com/user-attachments/assets/c892dd44-5ba9-4782-b3a7-3192ecc28f77)
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/f59199ab-c162-4c8c-aeb4-0b8f59ebfd60)
 
 ## RESULT:
 
 Thus the program to perform addition and subtraction of two numbers using functions has been executed successfully
- 
- 
-
 
 # EX-09-Use For Loop
 
@@ -167,36 +135,29 @@ Write a c program to find the sum of odd digits using for loop
 6.	Print the sum of odd digits.
 
 ## PROGRAM:
-~~~
-#include<stdio.h>
-int main()
-{
-    int a,b,sum=0,i;
-    scanf("%d%d",&a,&b);
-    for(i=a;i<=b;i++)
-    {
-        if(i%2!=0)
-        {
-            sum += i;
-        }
-    }
-    printf("%d",sum);
-    return 0;
-}
-~~~
+```
+#include <stdio.h>
+ int main() {
+     int num, sum = 0, digit;
+     scanf("%d", &num);
+     printf("Enter a number: %d\n",num);
+     for (; num != 0; num /= 10) {
+         digit = num % 10;
+         if (digit % 2 != 0) {
+            sum += digit;
+         }
+     }
+     printf("Sum of odd digits = %d\n", sum);
+     return 0;
+ }
+```
 
 ## OUTPUT:
-
-![image](https://github.com/user-attachments/assets/fcdf500d-1f9d-4366-939e-144995c543b4)
-
-
+![image](https://github.com/user-attachments/assets/2b03352c-94c6-48f1-9323-9da70958736e)
 
 ## RESULT:
 
 Thus the program to find the sum of odd digits using for loop has been executed successfully.
-
-
-
 
 # EX – 10 - Factorial of a Number Using a Function
 ## AIM:
@@ -214,23 +175,30 @@ d.	After the loop, print the factorial value.
 5.	End
 
 ## PROGRAM:
-~~~
-#include<stdio.h>
-int main()
-{
-    int n,fact=1;
-    scanf("%d",&n);
-    for(int i=1;i<=n;i++)
-    {
-        fact*=i;
+```
+#include <stdio.h>
+ void fact() {
+ int N, i;
+ unsigned long long fact = 1;
+ scanf("%d", &N);
+ printf("Enter a number: %d\n",N);
+ for (i = 1; i <= N; i++) {
+ fact *= i;
     }
-    printf("Factorial value is: %d",fact);
+        printf("Factorial of %d is %llu\n", N, fact);
+ }
+ int main() {
+    fact();
     return 0;
-}
-~~~
+ }
+```
+
 ## OUTPUT:
-![image](https://github.com/user-attachments/assets/0890600c-3d3c-4319-b642-0980cbe2f9fc)
+![image](https://github.com/user-attachments/assets/14d19b6c-ae40-409d-838b-3571b84ddba8)
 
 ## RESULT:
 The program correctly computes the factorial of a given number using a separate function and displays the result.
+
+# Name: R. Arunraj
+# Register Number: 212224110006
  
