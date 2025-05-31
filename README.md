@@ -229,7 +229,7 @@ void factorial()
 }
 int main()
 {
-    fact();
+    factorial();
     return 0;
 }
 ~~~
